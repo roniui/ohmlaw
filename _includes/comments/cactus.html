@@ -1,10 +1,12 @@
 <div id="cactus-comments"></div>
-<script>
-  initComments({
-    node: document.getElementById("cactus-comments"),
-    server: "https://matrix.cactus.chat:8448",
-    siteName: "ohmlaws",
-    commentSectionId: "{{ page.url }}"
-  });
+
+<script src="https://latest.cactus.chat/cactus.js"
+        onload="
+          initComments({
+            node: document.getElementById('cactus-comments'),
+            server: 'https://matrix.cactus.chat:8448',
+            siteName: 'ohmlaws',
+            commentSectionId: '{{ page.url }}'
+          });
+        ">
 </script>
-<script src="https://latest.cactus.chat/cactus.js"></script>

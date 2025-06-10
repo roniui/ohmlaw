@@ -9,7 +9,9 @@
 ';
 
 /* append your custom style below */
-
+:root {
+  --sidebar-active-color: #FCEA02; /* Replace with your desired color */
+}
 // Back-to-top progress bar
 #progress-circle {
   margin: -1px -1px;

@@ -10,7 +10,8 @@
 
 /* append your custom style below */
 html[data-mode=dark] {
-    --sidebar-active-color: #FCEA02; 
+    --sidebar-active-color: #FCEA02;
+    color-scheme: dark;
 }
 // Back-to-top progress bar
 #progress-circle {

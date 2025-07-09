@@ -28,3 +28,25 @@
   position: fixed;
   z-index: 1025;
 }
+/* Topbar: evenly space left and right, center content */
+#topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  height: 100%;
+}
+
+/* Let the title grow and center */
+#topbar-title {
+  flex-grow: 1;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Ensure the icons don't grow */
+#sidebar-trigger,
+#search-trigger {
+  flex-shrink: 0;
+}

@@ -26,11 +26,5 @@
 }
 #sidebar-trigger {
   position: fixed;
-  top: 1rem;
-  left: 1rem; // or use `right: 1rem;` if you prefer
   z-index: 1050; // higher than navbar, modal, etc.
-  background: white; // optional
-  padding: 0.5rem;
-  border-radius: 5px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); // optional shadow
 }

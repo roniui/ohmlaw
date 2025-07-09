@@ -10,12 +10,6 @@ author: Roni
 ---
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background-color: #f0f2f5; /* Light gray background */
-        }
         /* Custom styles for better table readability */
         table {
             width: 100%;
@@ -33,16 +27,14 @@ author: Roni
             font-weight: 600;
             color: #334155; /* Tailwind slate-700 */
         }
-        tr:last-child td {
-            border-bottom: none;
-        }
+        
         /* MathJax specific styling to ensure it fits well */
         .formula-section .formula {
             font-size: 1.25rem; /* Larger font for formulas */
             text-align: center;
             margin: 1.5rem 0;
             padding: 1rem;
-            background-color: #e0f2fe; /* Light blue background for formulas */
+            background-color: var(--prompt-info-bg) 
             border-radius: 0.5rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
@@ -674,56 +666,59 @@ author: Roni
             </div>
         </div>
 
-        <!--  Types of Power -->
-        <div class="formula-section mb-10">
-            <h3 class="text-2xl font-semibold text-blue-600 mb-4">⚡ Types of Power</h3>
-            <div class="overflow-x-auto rounded-lg shadow-sm border border-gray-200">
-                <table class="min-w-full bg-white table-types-of-power">
-                    <thead>
-                        <tr>
-                            <th class="py-3 px-4 text-sm font-medium text-gray-700 uppercase tracking-wider">Formula</th>
-                            <th class="py-3 px-4 text-sm font-medium text-gray-700 uppercase tracking-wider">Quantity</th>
-                            <th class="py-3 px-4 text-sm font-medium text-gray-700 uppercase tracking-wider">Symbol</th>
-                            <th class="py-3 px-4 text-sm font-medium text-gray-700 uppercase tracking-wider">Unit</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="py-3 px-4 text-sm">
-                                \(S = V \times I\) (Single Phase)<br>
-                                \(S = \sqrt{3} \times V \times I\) (Three Phase)
-                            </td>
-                            <td class="py-3 px-4 text-sm" data-label="Quantity">Apparent Power</td>
-                            <td class="py-3 px-4 text-sm" data-label="Symbol">S</td>
-                            <td class="py-3 px-4 text-sm" data-label="Unit">Volt-Ampere (VA)</td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 px-4 text-sm">
-                                \(P = V \times I \times \cos\phi\) (Single Phase)<br>
-                                \(P = \sqrt{3} \times V \times I \times \cos\phi\) (Three Phase)
-                            </td>
-                            <td class="py-3 px-4 text-sm" data-label="Quantity">Active Power</td>
-                            <td class="py-3 px-4 text-sm" data-label="Symbol">P</td>
-                            <td class="py-3 px-4 text-sm" data-label="Unit">Watt (W)</td>
-                        </tr>
-                        <tr>
-                            <td class="py-3 px-4 text-sm">
-                                \(Q = V \times I \times \sin\phi\) (Single Phase)<br>
-                                \(Q = \sqrt{3} \times V \times I \times \sin\phi\) (Three Phase)
-                            </td>
-                            <td class="py-3 px-4 text-sm" data-label="Quantity">Reactive Power</td>
-                            <td class="py-3 px-4 text-sm" data-label="Symbol">Q</td>
-                            <td class="py-3 px-4 text-sm" data-label="Unit">Volt-Ampere Reactive (VAR)</td>
-                        </tr>
-                        <tr>
-                            <td colspan="4" class="py-3 px-4 text-sm font-semibold">
-                                Power Triangle Relationship: \[S^2 = P^2 + Q^2\]
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+       <!-- Types of Power -->
+<div class="formula-section mb-10">
+    <h3 class="text-2xl font-semibold text-blue-600 mb-4">⚡ Types of Power</h3>
+
+    <div class="formula">
+        \[ \text{Single Phase}\]
+        \[S = V \times I \] 
+        \[P = V \times I \times \cos\phi \]
+        \[Q = V \times I \times \sin\phi \]
+        \[\]
+        \[ \text{Three Phase}\]
+        \[S = \sqrt{3} \times V \times I \]        
+        \[P = \sqrt{3} \times V \times I \times \cos\phi \]        
+        \[Q = \sqrt{3} \times V \times I \times \sin\phi \]
+        \[\]
+        \[ \text{Power Triangle}\]
+        \[S^2 = P^2 + Q^2 \]
+    </div>
+
+    <div class="overflow-x-auto rounded-lg shadow-sm border border-gray-200">
+        <table class="min-w-full bg-white table-types-of-power">
+            <thead>
+                <tr>
+                    <th class="py-3 px-4 text-sm font-medium text-gray-700 uppercase tracking-wider">Quantity</th>
+                    <th class="py-3 px-4 text-sm font-medium text-gray-700 uppercase tracking-wider">Symbol</th>
+                    <th class="py-3 px-4 text-sm font-medium text-gray-700 uppercase tracking-wider">Unit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="py-3 px-4 text-sm" data-label="Quantity">Apparent Power</td>
+                    <td class="py-3 px-4 text-sm" data-label="Symbol">S</td>
+                    <td class="py-3 px-4 text-sm" data-label="Unit">Volt-Ampere (VA)</td>
+                </tr>
+                <tr>
+                    <td class="py-3 px-4 text-sm" data-label="Quantity">Active Power</td>
+                    <td class="py-3 px-4 text-sm" data-label="Symbol">P</td>
+                    <td class="py-3 px-4 text-sm" data-label="Unit">Watt (W)</td>
+                </tr>
+                <tr>
+                    <td class="py-3 px-4 text-sm" data-label="Quantity">Reactive Power</td>
+                    <td class="py-3 px-4 text-sm" data-label="Symbol">Q</td>
+                    <td class="py-3 px-4 text-sm" data-label="Unit">Volt-Ampere Reactive (VAR)</td>
+                </tr>
+                <tr>
+                    <td class="py-3 px-4 text-sm" data-label="Quantity">Power Factor Angle</td>
+                    <td class="py-3 px-4 text-sm" data-label="Symbol">\(\phi\)</td>
+                    <td class="py-3 px-4 text-sm" data-label="Unit">Radian / Degree</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
         <!--  Power Factor – 3 Formulas -->
         <div class="formula-section mb-10">

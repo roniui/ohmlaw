@@ -169,6 +169,12 @@ collections:
   tabs:
     output: true
     sort_by: order
+  1styear:
+    output: true
+    permalink: /1st-year/:title/
+  2ndyear:
+    output: true
+    permalink: /2nd-year/:title/
 
 defaults:
   - scope:

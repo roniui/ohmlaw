@@ -194,6 +194,13 @@ defaults:
     values:
       layout: page
       permalink: /:title/
+  - scope:
+      path: ""
+      type: firstyear      # scope for firstyear collection
+    values:
+      layout: post
+      comments: true
+      toc: true
 
 sass:
   style: compressed

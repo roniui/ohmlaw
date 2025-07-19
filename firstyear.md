@@ -9,4 +9,4 @@ pagination:
 ---
 
 {% assign posts = site.firstyear %}
-{% include home.html %}
+

@@ -171,10 +171,7 @@ collections:
     sort_by: order
   firstyear:
     output: true
-    permalink: /1st-year/:title/
-  secondyear:
-    output: true
-    permalink: /2nd-year/:title/
+    permalink: /firstyear/:title/
 
 defaults:
   - scope:

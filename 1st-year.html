@@ -1,8 +1,17 @@
 ---
-layout: home
+layout: page
 title: "1st Year"
 permalink: /1st-year/
 ---
 
-{% assign posts = site.1styear %}
-{% include home.html %}
+<div class="post-preview">
+  {% assign posts = site['1styear'] | sort: 'date' | reverse %}
+  {% for post in posts %}
+    <article>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p class="post-meta">{{ post.date | date: "%b %d, %Y" }}</p>
+      <p>{{ post.excerpt }}</p>
+    </article>
+    <hr>
+  {% endfor %}
+</div>

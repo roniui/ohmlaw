@@ -1,9 +1,8 @@
 ---
 title: "Interview-Questions"
 date: 2025-05-10
-categories: [Q&A]
-tags: [question-answers, ITI]
 author: Roni
+layout: post
 ---
 
 # ITI Electrician Interview Questions and Answers

@@ -9,6 +9,11 @@ layout: page
     <article class="card-wrapper card">
       <a href="{{ post.url | relative_url }}" class="post-preview">
         <div class="card-body">
+
+          {% if post.image %}
+            <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-card-image" style="width: 100%; border-radius: 0.5rem; margin-bottom: 1rem;">
+          {% endif %}
+
           <h1 class="card-title my-2">{{ post.title }}</h1>
           
           <div class="card-text content mt-0 mb-3">
@@ -17,11 +22,10 @@ layout: page
 
           <div class="post-meta">
             <i class="far fa-calendar fa-fw me-1"></i>
-            {% include datetime.html date=post.date %}
+                {% include datetime.html date=post.date lang=lang %}
           </div>
         </div>
       </a>
     </article>
   {% endfor %}
 </div>
-

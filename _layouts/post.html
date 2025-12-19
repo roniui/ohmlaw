@@ -1,6 +1,5 @@
 ---
 layout: default
-refactor: true
 panel_includes:
   - toc
 tail_includes:
@@ -44,16 +43,13 @@ script_includes:
         {% if page.image.lqip %}
           {%- capture lqip -%}lqip="{{ page.image.lqip }}"{%- endcapture -%}
         {% endif %}
-      
-      {% if page.image.show_image_in_post != false %}
+
         <div class="mt-3 mb-3">
           <img {{ src }} {{ class }} {{ alt }} w="1200" h="630" {{ lqip }}>
           {%- if page.image.alt -%}
             <figcaption class="text-center pt-2 pb-2">{{ page.image.alt }}</figcaption>
           {%- endif -%}
         </div>
-      {% endif %}
-      
       {% endif %}
 
       <div class="d-flex justify-content-between">
@@ -182,4 +178,4 @@ script_includes:
     <!-- .post-tail-bottom -->
   </div>
   <!-- div.post-tail-wrapper -->
-</article>
+  </article>

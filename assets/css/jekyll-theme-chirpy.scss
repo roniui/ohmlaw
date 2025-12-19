@@ -24,3 +24,20 @@
     transition: stroke-dashoffset 0.2s;
   }
 }
+/* Force sidebar items to stay at the top regardless of page height */
+#sidebar nav.flex-grow-1 {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important; /* This stops the 'spreading' effect */
+  flex-grow: 0 !important;               /* Stops the container from stretching */
+}
+
+/* Ensure the Social Icons stay at the bottom with a natural gap */
+#sidebar .nav {
+  margin-bottom: auto !important; 
+}
+
+/* Optional: Keep a consistent gap between menu items */
+#sidebar .nav-item {
+  margin-bottom: 0.25rem !important;
+}

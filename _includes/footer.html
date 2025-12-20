@@ -1,5 +1,3 @@
-<!-- The Footer -->
-
 <footer
   aria-label="Site Info"
   class="
@@ -7,25 +5,64 @@
     flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3
   "
 >
-  <p>
-    {{- '©' }}
-    <time>{{ 'now' | date: '%Y' }}</time>
+  <div class="footer-left">
+    <p class="mb-1">
+      {{- '©' }}
+      <time>{{ 'now' | date: '%Y' }}</time>
 
-    {% if site.social.links %}
-      <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
-    {% else %}
-      <em class="fst-normal">{{ site.social.name }}</em>.
-    {% endif %}
+      {% if site.social.links %}
+        <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
+      {% else %}
+        <em class="fst-normal">{{ site.social.name }}</em>.
+      {% endif %}
 
-    {% if site.data.locales[include.lang].copyright.brief %}
-      <span
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="{{ site.data.locales[include.lang].copyright.verbose }}"
-      >
-        {{- site.data.locales[include.lang].copyright.brief -}}
-      </span>
-    {% endif %}
-  </p>
+      {% if site.data.locales[include.lang].copyright.brief %}
+        <span
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="{{ site.data.locales[include.lang].copyright.verbose }}"
+        >
+          {{- site.data.locales[include.lang].copyright.brief -}}
+        </span>
+      {% endif %}
+    </p>
+    <p class="small text-muted" style="font-size: 0.75rem; max-width: 400px;">
+      Information is for educational purposes only. Always consult a professional before working with high-voltage electricity.
+    </p>
+  </div>
 
+  <div class="footer-center text-center">
+    <p class="mb-1">
+      <a href="https://ohmlaws.github.io/tutorials">Tutorials</a> | 
+      <a href="https://ohmlaws.github.io/uptime">Uptime Status</a> | 
+      <a href="https://ohmlaws.github.io/sitemap.xml">Sitemap</a>
+    </p>
+    <p>
+      <a href="https://ohmlaws.github.io/Privacy-Policy">Privacy Policy</a> | 
+      <a href="https://ohmlaws.github.io/terms">Terms of Service</a> | 
+      <a href="https://ohmlaws.github.io/faq">FAQ</a>
+    </p>
+  </div>
+
+  <div class="footer-right text-lg-end">
+    <p>
+      {%- capture _platform -%}
+        <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
+      {%- endcapture -%}
+
+      {%- capture _theme -%}
+        <a
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="v{{ theme.version }}"
+          href="https://github.com/cotes2020/jekyll-theme-chirpy"
+          target="_blank"
+          rel="noopener"
+        >Chirpy</a>
+      {%- endcapture -%}
+
+      {{ site.data.locales[include.lang].meta | replace: ':PLATFORM', _platform | replace: ':THEME', _theme }}
+    </p>
+  </div>
+  
 </footer>

@@ -7,9 +7,11 @@ author: Roni
 permalink: /videos/
 ---
 
+
 <link href="https://unpkg.com/cloudinary-video-player@1.10.6/dist/cld-video-player.min.css" rel="stylesheet">
 
 <style>
+    
     .video-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -42,11 +44,13 @@ permalink: /videos/
         font-size: 0.95rem;
     }
 
+    
     .cld-video-player, .video-js {
         background-color: #000;
         overflow: visible !important;
         border-radius: 8px;
     }
+    
     
     .vjs-menu-button-popup .vjs-menu {
         z-index: 9999 !important;
@@ -56,13 +60,59 @@ permalink: /videos/
         max-height: 200px;
         overflow-y: auto;
     }
+
     .cld-video-player .vjs-time-control,
     .cld-video-player .vjs-current-time, 
     .cld-video-player .vjs-duration {
         white-space: nowrap !important;
+        display: block !important; 
+        min-width: auto !important;
+        padding-left: 2px;
+        padding-right: 2px;
     }
+    
     .cld-video-player .vjs-control-bar {
         flex-wrap: nowrap !important;
+    }
+
+    
+    .vjs-seek-btn {
+        background: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        width: 40px; 
+        height: 100%;
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.2s;
+        font-weight: bold;
+    }
+
+    .vjs-seek-btn:hover {
+        color: #00b3ff;
+        text-shadow: 0 0 5px rgba(0,179,255,0.5);
+    }
+
+    .vjs-seek-btn svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+    }
+    .cld-video-player .vjs-remaining-time {
+        display: none !important;
+    }
+    
+    .vjs-seek-btn.rewind-btn {
+        margin-left: 0px;
+        margin-right: 10px;
+    }
+    
+    .vjs-seek-btn.fwd-btn {
+        margin-right: 30px;
     }
 </style>
 
@@ -111,6 +161,14 @@ permalink: /videos/
 
     var allPlayers = [];
 
+    
+    function getRewindIcon() {
+        return '<svg viewBox="0 0 24 24"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/></svg>';
+    }
+    function getForwardIcon() {
+        return '<svg viewBox="0 0 24 24"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg>';
+    }
+
     videos.forEach(function(video) {
         var player = cld.videoPlayer(video.id, {
             showLogo: false,
@@ -125,12 +183,49 @@ permalink: /videos/
 
         allPlayers.push(player);
 
+        
         player.on('play', function() {
             allPlayers.forEach(function(p) {
                 if (p !== player) {
                     p.pause();
                 }
             });
+        });
+
+        
+        player.on('ready', function() {
+            var controlBar = player.el().querySelector('.vjs-control-bar');
+            
+            
+            var fullscreenBtn = controlBar.querySelector('.vjs-fullscreen-control');
+            
+            if (controlBar) {
+                var btnRewind = document.createElement('button');
+                btnRewind.className = 'vjs-seek-btn vjs-control rewind-btn';
+                btnRewind.innerHTML = getRewindIcon();
+                btnRewind.title = "-10 Seconds";
+                btnRewind.onclick = function() {
+                    player.currentTime(Math.max(0, player.currentTime() - 10));
+                };
+
+                
+                var btnForward = document.createElement('button');
+                btnForward.className = 'vjs-seek-btn vjs-control fwd-btn';
+                btnForward.innerHTML = getForwardIcon();
+                btnForward.title = "+10 Seconds";
+                btnForward.onclick = function() {
+                    player.currentTime(Math.min(player.duration(), player.currentTime() + 10));
+                };
+
+              
+                if (fullscreenBtn) {
+                    controlBar.insertBefore(btnRewind, fullscreenBtn);
+                    controlBar.insertBefore(btnForward, fullscreenBtn);
+                } else {
+                    controlBar.appendChild(btnRewind);
+                    controlBar.appendChild(btnForward);
+                }
+            }
         });
     });
 </script>

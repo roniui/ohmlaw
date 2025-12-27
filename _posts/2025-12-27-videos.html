@@ -98,8 +98,8 @@ permalink: /videos/
     }
 
     .vjs-seek-btn svg {
-        width: 18px;
-        height: 18px;
+        width: 24px;
+        height: 24px;
         fill: currentColor;
     }
     .cld-video-player .vjs-remaining-time {
@@ -114,6 +114,14 @@ permalink: /videos/
     .vjs-seek-btn.fwd-btn {
         margin-right: 30px;
     }
+     @media (min-width: 600px) {
+        .vjs-seek-btn.fwd-btn {
+            margin-right: -5px; 
+        }
+        .vjs-seek-btn.rewind-btn {
+        margin-right: 0px;
+    }     
+  }
 </style>
 
 <div class="video-grid">

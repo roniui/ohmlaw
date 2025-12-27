@@ -1,6 +1,6 @@
 ---
-layout: post
-title: Terms of Service
+icon: fas fa-info-circle
+order: 6
 ---
 
 # Terms of Service

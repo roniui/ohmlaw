@@ -90,35 +90,30 @@ permalink: /videos/
     <script src="https://unpkg.com/cloudinary-video-player@1.10.6/dist/cld-video-player.min.js"></script>
 
     <script>
-        // 1. SETUP YOUR CLOUD
         const cld = cloudinary.Cloudinary.new({ 
-            cloud_name: 'dcla1osjo', // <--- YOUR CORRECT CLOUD NAME
+            cloud_name: 'dcla1osjo',
             secure: true 
         });
 
-        // 2. YOUR VIDEO LIST
+        
         const videos = [
-            // I put your Transistor video in all slots so you can test it.
-            // Change the 'publicId' to your other file names when you are ready.
             { id: 'player1', publicId: 'p-n_Junction_Diode_Part_1____Depletion_Region___Barrier_Potential___Semiconductor_-_08____in_HINDI_y4e8fy' }, 
-            { id: 'player2', publicId: 'p-n_Junction_Diode_Part_2____Forward_Bias___Reverse_Bias____Semiconductor_-_09____in_HINDI_nrb7i0' }, // Replace with Part 2 ID
-            { id: 'player3', publicId: 'TRANSISTOR-Part1' }, // Replace with Part 3 ID
-            { id: 'player4', publicId: 'TRANSISTOR_-_Part_2____Transistor_Current_and_Parameters____Semiconductor_-_18____in_HINDI_a3qtco' }, // Replace with Part 4 ID
-            { id: 'player5', publicId: 'TRANSISTOR_-_Part_3____Transistor_as_a_SWITCH____Semiconductor_-_19____for_Class_12_in_HINDI_zzhfdn' }  // Replace with Part 5 ID
+            { id: 'player2', publicId: 'p-n_Junction_Diode_Part_2____Forward_Bias___Reverse_Bias____Semiconductor_-_09____in_HINDI_nrb7i0' },
+            { id: 'player3', publicId: 'TRANSISTOR-Part1' },
+            { id: 'player4', publicId: 'TRANSISTOR_-_Part_2____Transistor_Current_and_Parameters____Semiconductor_-_18____in_HINDI_a3qtco' },
+            { id: 'player5', publicId: 'TRANSISTOR_-_Part_3____Transistor_as_a_SWITCH____Semiconductor_-_19____for_Class_12_in_HINDI_zzhfdn' }
         ];
 
         videos.forEach(video => {
             const player = cld.videoPlayer(video.id, {
                 showLogo: false,
-                fluid: true // Fixes orientation/mobile size
+                fluid: true
             });
             
-            // 3. LOAD THE VIDEO (Standard MP4 Mode)
-            // We REMOVED 'sourceTypes: hls' and 'streaming_profile' 
-            // This ensures the video loads immediately without errors.
+            
             player.source(video.publicId, {
                 transformation: {
-                    quality: 'auto' // Optimizes size, but doesn't add the menu
+                    quality: 'auto'
                 }
             });
         });

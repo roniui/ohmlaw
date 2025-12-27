@@ -5,13 +5,11 @@ categories: [videos]
 tags: [Theory, ITI]
 author: Roni
 permalink: /videos/
-
 ---
 
 <link href="https://unpkg.com/cloudinary-video-player@1.10.6/dist/cld-video-player.min.css" rel="stylesheet">
 
 <style>
-    
     .video-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -61,60 +59,70 @@ permalink: /videos/
 </style>
 
 <div class="video-grid">
-        <div class="video-card">
-            <video id="player1" controls class="cld-video-player"></video>
-            <div class="video-title">p-n Junction Diode (Part 1) __ Depletion Region _ Barrier Potential</div>
-        </div>
-
-        <div class="video-card">
-            <video id="player2" controls class="cld-video-player"></video>
-            <div class="video-title">p-n Junction Diode (Part 2) __ Forward Bias _ Reverse Bias</div>
-        </div>
-
-        <div class="video-card">
-            <video id="player3" controls class="cld-video-player"></video>
-            <div class="video-title">TRANSISTOR - Part 1 _ Construction and Working _ Bipolar Junction Transistor (BJT)</div>
-        </div>
-
-        <div class="video-card">
-            <video id="player4" controls class="cld-video-player"></video>
-            <div class="video-title">TRANSISTOR - Part 2 __ Transistor Current and Parameters</div>
-        </div>
-
-        <div class="video-card">
-            <video id="player5" controls class="cld-video-player"></video>
-            <div class="video-title">TRANSISTOR - Part 3 __ Transistor as a SWITCH</div>
-        </div>
+    <div class="video-card">
+        <video id="player1" controls class="cld-video-player"></video>
+        <div class="video-title">p-n Junction Diode (Part 1) __ Depletion Region _ Barrier Potential</div>
     </div>
 
-    <script src="https://unpkg.com/cloudinary-video-player@1.10.6/dist/cld-video-player.min.js"></script>
+    <div class="video-card">
+        <video id="player2" controls class="cld-video-player"></video>
+        <div class="video-title">p-n Junction Diode (Part 2) __ Forward Bias _ Reverse Bias</div>
+    </div>
 
-    <script>
-        const cld = cloudinary.Cloudinary.new({ 
-            cloud_name: 'dcla1osjo',
-            secure: true 
+    <div class="video-card">
+        <video id="player3" controls class="cld-video-player"></video>
+        <div class="video-title">TRANSISTOR - Part 1 _ Construction and Working _ Bipolar Junction Transistor (BJT)</div>
+    </div>
+
+    <div class="video-card">
+        <video id="player4" controls class="cld-video-player"></video>
+        <div class="video-title">TRANSISTOR - Part 2 __ Transistor Current and Parameters</div>
+    </div>
+
+    <div class="video-card">
+        <video id="player5" controls class="cld-video-player"></video>
+        <div class="video-title">TRANSISTOR - Part 3 __ Transistor as a SWITCH</div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/cloudinary-video-player@1.10.6/dist/cld-video-player.min.js"></script>
+
+<script>
+    var cld = cloudinary.Cloudinary.new({ 
+        cloud_name: 'dcla1osjo',
+        secure: true 
+    });
+
+    var videos = [
+        { id: 'player1', publicId: 'p-n_Junction_Diode_Part_1____Depletion_Region___Barrier_Potential___Semiconductor_-_08____in_HINDI_y4e8fy' }, 
+        { id: 'player2', publicId: 'p-n_Junction_Diode_Part_2____Forward_Bias___Reverse_Bias____Semiconductor_-_09____in_HINDI_nrb7i0' },
+        { id: 'player3', publicId: 'TRANSISTOR-Part1' },
+        { id: 'player4', publicId: 'TRANSISTOR_-_Part_2____Transistor_Current_and_Parameters____Semiconductor_-_18____in_HINDI_a3qtco' },
+        { id: 'player5', publicId: 'TRANSISTOR_-_Part_3____Transistor_as_a_SWITCH____Semiconductor_-_19____for_Class_12_in_HINDI_zzhfdn' }
+    ];
+
+    var allPlayers = [];
+
+    videos.forEach(function(video) {
+        var player = cld.videoPlayer(video.id, {
+            showLogo: false,
+            fluid: true
+        });
+        
+        player.source(video.publicId, {
+            transformation: {
+                quality: 'auto'
+            }
         });
 
-        
-        const videos = [
-            { id: 'player1', publicId: 'p-n_Junction_Diode_Part_1____Depletion_Region___Barrier_Potential___Semiconductor_-_08____in_HINDI_y4e8fy' }, 
-            { id: 'player2', publicId: 'p-n_Junction_Diode_Part_2____Forward_Bias___Reverse_Bias____Semiconductor_-_09____in_HINDI_nrb7i0' },
-            { id: 'player3', publicId: 'TRANSISTOR-Part1' },
-            { id: 'player4', publicId: 'TRANSISTOR_-_Part_2____Transistor_Current_and_Parameters____Semiconductor_-_18____in_HINDI_a3qtco' },
-            { id: 'player5', publicId: 'TRANSISTOR_-_Part_3____Transistor_as_a_SWITCH____Semiconductor_-_19____for_Class_12_in_HINDI_zzhfdn' }
-        ];
+        allPlayers.push(player);
 
-        videos.forEach(video => {
-            const player = cld.videoPlayer(video.id, {
-                showLogo: false,
-                fluid: true
-            });
-            
-            
-            player.source(video.publicId, {
-                transformation: {
-                    quality: 'auto'
+        player.on('play', function() {
+            allPlayers.forEach(function(p) {
+                if (p !== player) {
+                    p.pause();
                 }
             });
         });
-    </script>
+    });
+</script>

@@ -134,22 +134,6 @@ permalink: /videos/
     cursor: pointer;
 }
 
-.video-facade img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
-
-.video-facade:hover img {
-    opacity: 1; /* Brighten on hover */
-}
-
-/* The Play Button Overlay */
 .play-button {
     position: absolute;
     top: 50%;
@@ -157,16 +141,12 @@ permalink: /videos/
     transform: translate(-50%, -50%);
     width: 68px;
     height: 48px;
-    background-color: rgba(33, 33, 33, 0.8);
+    background-color: #f00;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.2s;
-}
-
-.video-facade:hover .play-button {
-    background-color: #f00; /* YouTube Red on hover */
 }
 
 .play-button::after {
@@ -188,8 +168,8 @@ permalink: /videos/
   </div>
   
   <div class="video-card">
-    <a href="https://www.youtube.com/watch?v=vodf0G0sYhM" target="_blank" class="video-facade" style="display: block; position: relative; width: 100%; padding-bottom: 56.25%; background-image: url('https://img.youtube.com/vi/vodf0G0sYhM/sddefault.jpg'); background-size: cover; background-position: center;">
-        <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+    <a href="https://www.youtube.com/watch?v=vodf0G0sYhM" target="_blank" class="video-facade" style="background-image: url('https://img.youtube.com/vi/vodf0G0sYhM/sddefault.jpg'); background-size: cover; background-position: center;">
+        <div class="play-button"></div>
     </a>
     <div class="video-title">Reluctance Motor Working and Principle In hindi</div>
 </div>

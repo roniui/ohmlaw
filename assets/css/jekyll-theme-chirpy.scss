@@ -33,3 +33,43 @@ padding-bottom: 0 !important;
 padding-top: 0 !important;
 margin: 2px !important;
 }
+
+.scroller {   
+    overflow: hidden;
+}
+
+.scroller__inner {
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    width: max-content;
+    animation: scroll var(--_animation-duration, 20s) var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller:hover .scroller__inner {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-25% - 0.2rem)); 
+    }
+}
+
+
+.tag-list li {
+    background: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    
+}
+
+.tag-list li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+
+.scroller[data-speed="medium"] { --_animation-duration: 20s; }

@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-    # Prevent the bot from triggering itself endlessly
     paths-ignore:
       - '_docs/CHANGELOG.md'
   workflow_dispatch:
@@ -19,21 +18,28 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Get full history
+          fetch-depth: 0
 
-      - name: Generate Changelog (Newest on Top)
+      - name: Generate Changelog with Links
         run: |
           mkdir -p _docs
           
-          # 1. Write the Header
+          # Define the Repo URL for links
+          REPO_URL="https://github.com/${{ github.repository }}"
+          
+          # Write Header
           echo "# Project Changelog" > _docs/CHANGELOG.md
           echo "Last Updated: $(date +'%Y-%m-%d')" >> _docs/CHANGELOG.md
           echo "" >> _docs/CHANGELOG.md
           
-          # 2. Add the Commits
-          # --date=short prints YYYY-MM-DD
-          # grep -v removes lines that match the text (cleans up bot spam)
-          git log --pretty=format:"- **%ad**: %s (%h)" --date=short | grep -v "docs: update CHANGELOG.md" >> _docs/CHANGELOG.md
+          # 1. git log generates the list with Commit Links
+          # 2. sed command finds #123 patterns and turns them into PR Links
+          # 3. grep removes the bot's own commit messages
+          
+          git log --date=short --pretty=format:"- **%ad**: %s ([%h]($REPO_URL/commit/%H))" \
+          | sed -E "s|#([0-9]+)|[#\1]($REPO_URL/pull/\1)|g" \
+          | grep -v "docs: update CHANGELOG.md" \
+          >> _docs/CHANGELOG.md
 
       - name: Commit & Push
         uses: stefanzweifel/git-auto-commit-action@v5

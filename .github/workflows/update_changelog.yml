@@ -1,0 +1,42 @@
+name: Update Changelog
+
+on:
+  push:
+    branches:
+      - main
+    # Prevent the bot from triggering itself endlessly
+    paths-ignore:
+      - '_docs/CHANGELOG.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Get full history
+
+      - name: Generate Changelog (Newest on Top)
+        run: |
+          mkdir -p _docs
+          
+          # 1. Write the Header
+          echo "# Project Changelog" > _docs/CHANGELOG.md
+          echo "Last Updated: $(date +'%Y-%m-%d')" >> _docs/CHANGELOG.md
+          echo "" >> _docs/CHANGELOG.md
+          
+          # 2. Add the Commits
+          # --date=short prints YYYY-MM-DD
+          # grep -v removes lines that match the text (cleans up bot spam)
+          git log --pretty=format:"- **%ad**: %s (%h)" --date=short | grep -v "docs: update CHANGELOG.md" >> _docs/CHANGELOG.md
+
+      - name: Commit & Push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: update CHANGELOG.md [skip ci]"
+          file_pattern: _docs/CHANGELOG.md

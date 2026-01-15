@@ -2,6 +2,7 @@
 Last Updated: 2026-01-15
 
 ## 2026-01-15
+- Remove video from safety practice and hand tools post ([4cb57b6](https://github.com/roniui/ohmlaw/commit/4cb57b6618e830cf5ca4e158a34a4cd507366baa))
 - Update update_changelog.yml ([0b01914](https://github.com/roniui/ohmlaw/commit/0b0191497a33664305e099999a77ec390a9aa3bf))
 - Update update_changelog.yml ([d02328a](https://github.com/roniui/ohmlaw/commit/d02328a6912de922cfbd49543dc63df31d38b933))
 - Create update_changelog.yml ([ccf6780](https://github.com/roniui/ohmlaw/commit/ccf678052ed318093d0fb5092ba241e7a2f4eeb9))

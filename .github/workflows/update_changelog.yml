@@ -20,26 +20,45 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Generate Changelog with Links
+      - name: Generate Grouped Changelog
         run: |
           mkdir -p _docs
-          
-          # Define the Repo URL for links
           REPO_URL="https://github.com/${{ github.repository }}"
           
-          # Write Header
+          # Initialize the file
           echo "# Project Changelog" > _docs/CHANGELOG.md
           echo "Last Updated: $(date +'%Y-%m-%d')" >> _docs/CHANGELOG.md
-          echo "" >> _docs/CHANGELOG.md
           
-          # 1. git log generates the list with Commit Links
-          # 2. sed command finds #123 patterns and turns them into PR Links
-          # 3. grep removes the bot's own commit messages
+          # Fetch logs with a special separator "|"
+          # Format: Date | Message | ShortHash | LongHash
+          git log --date=short --pretty=format:"%ad|%s|%h|%H" > commits.txt
           
-          git log --date=short --pretty=format:"- **%ad**: %s ([%h]($REPO_URL/commit/%H))" \
-          | sed -E "s|#([0-9]+)|[#\1]($REPO_URL/pull/\1)|g" \
-          | grep -v "docs: update CHANGELOG.md" \
-          >> _docs/CHANGELOG.md
+          current_date=""
+          
+          # Read the log line by line
+          while IFS='|' read -r date msg short_hash long_hash; do
+            # Skip the bot's own commit messages to keep it clean
+            if [[ "$msg" == *"docs: update CHANGELOG.md"* ]]; then
+              continue
+            fi
+          
+            # If the date has changed, print a new Header
+            if [ "$date" != "$current_date" ]; then
+              echo "" >> _docs/CHANGELOG.md
+              echo "## $date" >> _docs/CHANGELOG.md
+              current_date="$date"
+            fi
+            
+            # Print the commit item
+            echo "- $msg ([$short_hash]($REPO_URL/commit/$long_hash))" >> _docs/CHANGELOG.md
+            
+          done < commits.txt
+          
+          # Finally, add links to Pull Requests (e.g., #12 -> link)
+          sed -i -E "s|#([0-9]+)|[#\1]($REPO_URL/pull/\1)|g" _docs/CHANGELOG.md
+          
+          # Clean up temp file
+          rm commits.txt
 
       - name: Commit & Push
         uses: stefanzweifel/git-auto-commit-action@v5

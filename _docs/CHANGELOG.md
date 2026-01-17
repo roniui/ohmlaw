@@ -2,6 +2,7 @@
 Last Updated: 2026-01-17
 
 ## 2026-01-17
+- Add video gallery with multiple video entries ([6b38884](https://github.com/roniui/ohmlaw/commit/6b3888402184e99dd381a14dd27d2abaf12b2a4b))
 - Test: Add post paginator for homepage navigation ([104311e](https://github.com/roniui/ohmlaw/commit/104311e06a44211a47c8018da1753b790037b0db))
 
 ## 2026-01-15

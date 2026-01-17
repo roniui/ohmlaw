@@ -2,6 +2,7 @@
 Last Updated: 2026-01-17
 
 ## 2026-01-17
+- Change pagination from 10 to 4 ([05aef7e](https://github.com/roniui/ohmlaw/commit/05aef7e5da4c555fa59e2b8ff43cf334ab7b493e))
 - Add safety practice and hand tools quiz post ([587aed6](https://github.com/roniui/ohmlaw/commit/587aed6c593d0abcb3d40f0e31148fd8793f4d8c))
 - Add video gallery with multiple video entries ([6b38884](https://github.com/roniui/ohmlaw/commit/6b3888402184e99dd381a14dd27d2abaf12b2a4b))
 - Test: Add post paginator for homepage navigation ([104311e](https://github.com/roniui/ohmlaw/commit/104311e06a44211a47c8018da1753b790037b0db))

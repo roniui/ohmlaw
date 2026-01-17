@@ -1,6 +1,9 @@
 # Project Changelog
 Last Updated: 2026-01-17
 
+## 2026-01-18
+- Change pagination from 4 to 10 ([94e1fa0](https://github.com/roniui/ohmlaw/commit/94e1fa0b233681b32c5c9e1ad2667faa075c0f64))
+
 ## 2026-01-17
 - Change pagination from 10 to 4 ([05aef7e](https://github.com/roniui/ohmlaw/commit/05aef7e5da4c555fa59e2b8ff43cf334ab7b493e))
 - Add safety practice and hand tools quiz post ([587aed6](https://github.com/roniui/ohmlaw/commit/587aed6c593d0abcb3d40f0e31148fd8793f4d8c))

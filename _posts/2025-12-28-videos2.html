@@ -1,0 +1,214 @@
+---
+title: Video Gallery
+description: Some videos for clear concept
+date: 2025-12-28 21:05:00 +0530
+categories: [videos]
+tags: [Theory, ITI]
+author: Roni
+---
+
+<style>
+    
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 20px;
+        padding-bottom: 50px;
+    }
+
+    .video-card {
+        background-color: var(--sidebar-bg); 
+        border: 1px solid var(--btn-border-color);
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: var(--btn-box-shadow);
+        position: relative;
+    }
+
+    .video-card:hover {
+        border-color: var(--link-color);
+    }
+
+    .video-title {
+        margin-top: 15px;
+        text-align: center;
+        font-weight: 600;
+        color: var(--heading-text-color);
+        font-size: 0.95rem;
+    }
+
+    video {
+        width: 100%;
+        border-radius: 8px;
+        background-color: #000;
+        display: block;
+        outline: none;
+        object-fit: cover; 
+    }
+
+    .video-facade {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background-color: #000;
+    border-radius: 12px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+}
+.video-facade::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px;
+    height: 48px;
+    background-color: #f00;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.play-button::after {
+    content: "";
+    border-style: solid;
+    border-width: 10px 0 10px 20px;
+    border-color: transparent transparent transparent #fff;
+      }
+</style>
+
+<div class="video-grid">
+
+   <div class="video-card">
+    <a href="https://www.youtube.com/watch?v=Rp8gVZFFQok" target="_blank" class="video-facade" style="background-image: url('https://img.youtube.com/vi/Rp8gVZFFQok/maxresdefault.jpg');">
+        <div class="play-button"></div>
+    </a>
+    <div class="video-title">How synchronous motors work (Hindi)</div>
+</div>
+
+<div class="video-card">
+    <a href="https://www.youtube.com/watch?v=vodf0G0sYhM" target="_blank" class="video-facade" style="background-image: url('https://img.youtube.com/vi/vodf0G0sYhM/sddefault.jpg');">
+        <div class="play-button"></div>
+    </a>
+    <div class="video-title">Reluctance Motor Working and Principle In hindi</div>
+</div>
+
+<div class="video-card">
+    <a href="https://www.youtube.com/watch?v=FpzlZq_wDL4" target="_blank" class="video-facade" style="background-image: url('https://img.youtube.com/vi/FpzlZq_wDL4/maxresdefault.jpg');">
+        <div class="play-button"></div>
+    </a>
+    <div class="video-title">Electric generator (A.C. & D.C.) (Hindi) | Magnetic effects of current</div>
+</div>
+
+<div class="video-card">
+    <a href="https://www.youtube.com/watch?v=rLXyNxF36_U" target="_blank" class="video-facade" style="background-image: url('https://img.youtube.com/vi/rLXyNxF36_U/maxresdefault.jpg');">
+        <div class="play-button"></div>
+    </a>
+    <div class="video-title">DC motor working principle (Hindi)</div>
+</div>
+
+<div class="video-card">
+    <a href="https://www.youtube.com/watch?v=7IdHfk5mUVc" target="_blank" class="video-facade" style="background-image: url('https://img.youtube.com/vi/7IdHfk5mUVc/maxresdefault.jpg');">
+        <div class="play-button"></div>
+    </a>
+    <div class="video-title">Back EMF in Dc Motor ? How Back Emf Produce? (Hindi)</div>
+</div>
+  
+    <div class="video-card">
+        <div class="video-wrapper">
+            <video id="vid1" controls playsinline preload="metadata" controlsList="nodownload" oncontextmenu="return false;">
+                <source src="https://archive.org/download/videos_20251229/p-n-Junction-Diode-Part-1.mp4#t=0.1" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-title">p-n Junction Diode (Part 1) __ Depletion Region _ Barrier Potential</div>
+    </div>
+
+    <div class="video-card">
+        <div class="video-wrapper">
+            <video id="vid2" controls playsinline preload="metadata" controlsList="nodownload" oncontextmenu="return false;">
+                <source src="https://archive.org/download/videos_20251229/p-n-Junction-Diode-Part-2.mp4#t=0.1" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-title">p-n Junction Diode (Part 2) __ Forward Bias _ Reverse Bias</div>
+    </div>
+
+    <div class="video-card">
+        <div class="video-wrapper">
+            <video id="vid3" controls playsinline preload="metadata" controlsList="nodownload" oncontextmenu="return false;">
+                <source src="https://archive.org/download/videos_20251229/TRANSISTOR-Part1.mp4#t=0.1" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-title">TRANSISTOR - Part 1 _ Construction and Working _ Bipolar Junction Transistor (BJT)</div>
+    </div>
+
+    <div class="video-card">
+        <div class="video-wrapper">
+            <video id="vid4" controls playsinline preload="metadata" controlsList="nodownload" oncontextmenu="return false;">
+                <source src="https://archive.org/download/videos_20251229/TRANSISTOR-Part2.mp4#t=0.1" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-title">TRANSISTOR - Part 2 __ Transistor Current and Parameters</div>
+    </div>
+
+    <div class="video-card">
+        <div class="video-wrapper">
+            <video id="vid5" controls playsinline preload="metadata" controlsList="nodownload" oncontextmenu="return false;">
+                <source src="https://archive.org/download/videos_20251229/TRANSISTOR-Part3.mp4#t=0.1" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-title">TRANSISTOR - Part 3 __ Transistor as a SWITCH</div>
+    </div>
+</div>
+
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+        var videos = document.querySelectorAll('video');
+        
+        videos.forEach(function(video) {
+            
+                    
+            const setThumbnail = () => {
+                
+                if (video.currentTime === 0) {
+                    video.currentTime = 0.1;
+                }
+            };
+
+            if (video.readyState >= 1) {
+                setThumbnail();
+            } else {
+                video.addEventListener('loadedmetadata', setThumbnail);
+            }    
+
+                      
+            video.addEventListener('play', function() {
+                videos.forEach(function(otherVideo) {
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+                });
+            });
+        });
+    });
+</script>

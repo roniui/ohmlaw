@@ -1,7 +1,11 @@
 # Project Changelog
-Last Updated: 2026-01-15
+Last Updated: 2026-01-17
+
+## 2026-01-17
+- Test: Add post paginator for homepage navigation ([104311e](https://github.com/roniui/ohmlaw/commit/104311e06a44211a47c8018da1753b790037b0db))
 
 ## 2026-01-15
+- Fix closing style tag in how-to-use.md ([823c0f4](https://github.com/roniui/ohmlaw/commit/823c0f421b4d47c9587455f1c1d8f113bb367adc))
 - Ignore _docs directory in GitHub Actions workflow ([878055d](https://github.com/roniui/ohmlaw/commit/878055d9a9fbe23ef15ea9d20c97629f9452296e))
 - Remove video from safety practice and hand tools post ([4cb57b6](https://github.com/roniui/ohmlaw/commit/4cb57b6618e830cf5ca4e158a34a4cd507366baa))
 - Update update_changelog.yml ([0b01914](https://github.com/roniui/ohmlaw/commit/0b0191497a33664305e099999a77ec390a9aa3bf))

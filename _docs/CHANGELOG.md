@@ -2,6 +2,7 @@
 Last Updated: 2026-01-18
 
 ## 2026-01-18
+- Remove .page-index class from _home.scss ([9090eb8](https://github.com/roniui/ohmlaw/commit/9090eb8b67d51ecafcb135941ebb23ab9adc00aa))
 - Add styles for post list and pagination ([80ae7aa](https://github.com/roniui/ohmlaw/commit/80ae7aadb5dd7ff2d2141b393b6b598c28c37d45))
 - Add safety practice and hand tools quiz post ([b768d83](https://github.com/roniui/ohmlaw/commit/b768d83171963f808c8f03b226ee1ac39c4c9615))
 - Add new post on safety practice and hand tools ([2f7f9cf](https://github.com/roniui/ohmlaw/commit/2f7f9cff8582c0ff1baa1bb71f67b8da3faaace7))

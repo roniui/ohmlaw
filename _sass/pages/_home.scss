@@ -155,10 +155,4 @@
       }
     }
   } /* .page-item */
-
-  .page-index {
-    @include bp.lg {
-      display: none;
-    }
-  }
 }
